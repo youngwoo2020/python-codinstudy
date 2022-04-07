@@ -2,7 +2,7 @@ import math
 
 def solution(n):
     sq = int(math.sqrt(n))
-    if sq * sq == n:
-        return (sq + 1) * (sq + 1)
+    if sq ** 2 == n:
+        return (sq + 1) ** 2
     else:
         return -1
