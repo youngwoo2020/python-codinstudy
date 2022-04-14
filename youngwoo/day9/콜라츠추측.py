@@ -9,4 +9,4 @@ def solution(n):
             answer +=1
     if answer>=500:
         answer = -1
-    return answer1
+    return answer
