@@ -8,6 +8,7 @@ report=["muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"]
 
 
 answer = []
+start=[]
 end=[]
 report = list(dict.fromkeys(report))
 

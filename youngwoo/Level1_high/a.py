@@ -1,29 +1,39 @@
 
-def binary(a):
-    component = ""
-    while a>0:
-        component += str(a%2)
-        a = int(a/2)
-        if a<2:
-            component+=str(a)
-            break
-    if len(component)<n:
-        component +=(n-len(component))*"0"
-    return (component[::-1])
 
-def solution(n, arr1, arr2):
+k=2
+id_list=["muzi", "frodo", "apeach", "neo"]
+report=["muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"]
+
+def solution(id_list, report, k):
     answer = []
-    for i in range(n):
-        real = ""
-        for j in range(n):
-            if binary(arr1[i])[j]=="0" and binary(arr2[i])[j]=="0":
-                real += " "
-            else:
-                real += "#"
-        answer.append(real)
-    return answer
+    count = {}
+    report = list(dict.fromkeys(report))
+    for i in report:
+        print(i.split(" ")[1])
+        try: count[i.split(" ")[1]]+=1
+        except : count[i.split(" ")[1]]=1
+        
 
-n = 5
-arr1 = [46, 33, 33 ,22, 31, 50]
-arr2 =[27 ,56, 19, 14, 14, 10]    
-print(solution(n, arr1, arr2))
+    fail =[]
+    for i in range(len(list(count.values()))):
+        if list(count.values())[i]>=k:
+            fail.append(list(count.keys())[i])
+            
+    new_report =[]
+    for i in report:
+        new_report.append(i.split(" "))
+
+    pre = []
+    for j in range(len(new_report)):
+        for i in range(len(fail)):
+            if fail[i] == new_report[j][1]:
+                pre.append(new_report[j][0])
+
+
+
+    answer = [0 for i in range(len(id_list))]
+    for i in range(len(id_list)):
+        for j in range(len(pre)):
+            if id_list[i]==pre[j]:
+                answer[i]+=1
+    return answer
