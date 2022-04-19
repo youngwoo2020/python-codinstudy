@@ -17,12 +17,15 @@ for i in phase1:
 #3단계
 phase3=[]
 
-print(phase2.count("."))
-
-
 print(phase2)
 for i in range(len(phase2)-1):
     if phase2[i]=="." and phase2[i+1]==".":
         phase3.append(i)
         
 print(phase3)
+answer =""
+for i in (phase3):
+    print(i)
+    phase2= phase2.replace(phase2[i],"")
+
+print(phase2)
