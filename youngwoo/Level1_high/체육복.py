@@ -1,6 +1,6 @@
 n = 5
-lost = [1,2,4]
-reserve = [2,3,4,5]
+lost = [4,2]
+reserve = [3,4,5]
 
 lost.sort()
 reserve.sort()
@@ -17,6 +17,7 @@ for i in lost:
             
 pre = list(set(pre))
 print(pre)
+
 if len(pre)>=len(lost):
     answer =n
 else:

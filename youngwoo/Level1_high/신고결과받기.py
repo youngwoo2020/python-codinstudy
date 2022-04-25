@@ -1,37 +1,34 @@
+
+
 id_list = ["muzi", "frodo", "apeach", "neo"]
 report = ["muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"]
 k = 2
 answer = []
 
-start=[]
 end=[]
-report = list(dict.fromkeys(report))
-
-for i in report:
-    end.append(i.split(" ")[1])  
-count = {}
-for i in end:
-    try: 
-        count[i] +=1
-        if count[i]>=k:
-            count[i]=k
-            continue
-    except: count[i] = 1
-
 fail =[]
+report = list(dict.fromkeys(report))
+count = {}
+for i in range(len(report)):
+    end.append(report[i].split(" ")[1])
+    try: 
+        count[end[i]] +=1
+        if count[end[i]]>=k:
+            count[end[i]]=k
+            continue
+    except: count[end[i]] = 1
+
 for i in range(len(list(count.values()))):
-    if list(count.values())[i]>=k:
-
+    if list(count.values())[i]==k:
         fail.append(list(count.keys())[i])
-
+        
+print(fail)
 new_report =[]
 for i in report:
     new_report.append(i.split(" "))
-    
-print(fail)
-
 
 pre = []
+
 
 for j in range(len(new_report)):
     for i in range(len(fail)):
